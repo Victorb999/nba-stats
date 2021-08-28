@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+
+  --gray-1: #FFFFFA;
+  --gray-2: #CCC9DC;
+  --gray-3: #324A5F;
+  --gray-4: #1B2A41;
+  --gray-5: #0C1821;
+
+  --green: #85FFC7;
+  --orange: #FF8552;
+  --red: #FF0A54;
+  --blue-1: #23C9FF;
+  --blue-2: #20A4F3;
+
+  --primary:#1D428A;
+  --secondary:#C8102E;
+
+  --degrade-1: linear-gradient(90deg, #FF0A54 0%, #20A4F3 100%);
+
+  --hawks: #E13A3E;
+  --celtics: #007239;
+  --nets: #666;
+  --hornets: #00788C;
+  --bulls: #C60033;
+  --cavaliers: #B2004A;
+  --mavericks: #0064B1;
+  --nuggets: #0E2240;
+  --pistons: #1D428A;
+  --warriors: #FFA601;
+  --rockets: #CE1141;
+  --pacers: #002D62;
+  --clippers: #C8102E;
+  --lakers: #552583;
+  --grizzlies: #5D76A9;
+  --heat: #98002E;
+  --bucks: #00471B;
+  --timberwolves: #0C2340;
+  --pelicans: #002B5C;
+  --knicks: #006BB6;
+  --thunder: #007AC1;
+  --magic: #3578C0;
+  --sixers: #006BB6;
+  --suns: #1D1160;
+  --blazers: #DE2032;
+  --kings: #5B2B82;
+  --spurs: #999;
+  --raptors: #CE1141;
+  --jazz: #FFA601;
+  --wizards: #002B5C;
+}
+
+@media (max-width : 1080px){
+  html {
+    font-size: 93.75%
+  }
+}
+
+@media (max-width : 720px){
+  html {
+    font-size: 87.5%
+  }
+}
+
+
+body {
+  background-color: var(--gray-1);
+}
+
+body,
+input,
+textarea,
+button {
+  font: 500 1rem 'Comfortaa',sans-serif;
+  color: var(--gray-5);
+}
+h1,h2,h3,h4,h5,h5{
+  font-weight: 600;
+  font-family: 'Bebas Neue',sans-serif;
+  color: var(--gray-5);  
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+button {
+  cursor: pointer;
+}
+
+.hawks{background-color: var(--hawks);}
+.celtics{background-color: var(--celtics);}
+.nets{background-color: var(--nets);}
+.hornets{background-color: var(--hornets);}
+.bulls{background-color: var(--bulls);}
+.cavaliers{background-color: var(--cavaliers);}
+.mavericks{background-color: var(--mavericks);}
+.nuggets{background-color: var(--nuggets);}
+.pistons{background-color: var(--pistons);}
+.warriors{background-color: var(--warriors);}
+.rockets{background-color: var(--rockets);}
+.pacers{background-color: var(--pacers);}
+.clippers{background-color: var(--clippers);}
+.lakers{background-color: var(--lakers);}
+.grizzlies{background-color: var(--grizzlies);}
+.heat{background-color: var(--heat);}
+.bucks{background-color: var(--bucks);}
+.timberwolves{background-color: var(--timberwolves);}
+.pelicans{background-color: var(--pelicans);}
+.knicks{background-color: var(--knicks);}
+.thunder{background-color: var(--thunder);}
+.magic{background-color: var(--magic);}
+.sixers{background-color: var(--sixers);}
+.suns{background-color: var(--suns);}
+.blazers{background-color: var(--blazers);}
+.kings{background-color: var(--kings);}
+.spurs{background-color: var(--spurs);}
+.raptors{background-color: var(--raptors);}
+.jazz{background-color: var(--jazz);}
+.wizards{background-color: var(--wizards);}
+
