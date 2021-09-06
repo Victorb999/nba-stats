@@ -3,6 +3,7 @@ import { api } from "../../services/api";
 import { Standard } from "../../services/typesRoster";
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import { usePlayer } from "../../contexts/PlayerContext";
 
 type Team = {
   city: string;
@@ -23,7 +24,17 @@ type TeamProps = {
   teamEdit: Standard;
 };
 
+
 export default function Team({ teamEdit }: TeamProps) {
+  const shimmer =() => `<svg width="342" height="342" viewBox="0 0 342 342" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M171 192.375C224.104 192.375 267.188 149.291 267.188 96.1875C267.188 43.084 224.104 0 171 0C117.896 0 74.8125 43.084 74.8125 96.1875C74.8125 149.291 117.896 192.375 171 192.375ZM256.5 213.75H219.695C204.866 220.563 188.367 224.438 171 224.438C153.633 224.438 137.201 220.563 122.305 213.75H85.5C38.2746 213.75 0 252.025 0 299.25V309.938C0 327.639 14.3613 342 32.0625 342H309.938C327.639 342 342 327.639 342 309.938V299.25C342 252.025 303.725 213.75 256.5 213.75Z" fill="#324A5F"/>
+  </svg>
+  `
+const toBase64 = (str:string) =>
+  typeof window === 'undefined'
+    ? Buffer.from(str).toString('base64')
+    : window.btoa(str)
+
   return (
     <div className={styles.teamContainer}>
       <div className={styles.teamInfo}>
@@ -46,16 +57,19 @@ export default function Team({ teamEdit }: TeamProps) {
           return (
             <div className={styles.teamPlayer} key={team.personId}>
               <div className={styles.teamImg}>
+               
                 <Image
-                  width={150}
-                  height={150}
+                  width={200}
+                  height={200}
                   src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
                   alt={team.personId}
                   objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer())}`}
                 />
               </div>
               <div className={styles.playerName + " " + teamEdit.teamName}>
-                {team.personId}
+                {team.playerName}
               </div>
             </div>
           );
@@ -91,6 +105,15 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const team: Standard = data.league.standard;
 
+  const players = await api.get("/players.json").then( player =>{
+    return player.data.league.standard
+  });
+  
+  const getPlayer = (id:string) =>{
+    const player = players.filter( player => { return player.personId == id})
+    return player[0];
+  }
+
   let teamEdit: Standard = {
     teamName: slug,
     teamId: team.teamId,
@@ -100,6 +123,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   teamEdit.players.map((person) => {
     person.personImg = `https://cdn.nba.com/headshots/nba/latest/1040x760/${person.personId}.png`;
+    const player = getPlayer(person.personId);
+    person.playerName = player.firstName +  " " +  player.lastName;
   });
 
   return {

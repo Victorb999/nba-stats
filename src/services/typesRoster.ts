@@ -1,12 +1,13 @@
 export interface Player {
   personId: string;
   personImg?: string;
+  playerName?: string;
 }
 
 export interface Standard {
-  teamName?:string;
   teamId: string;
   teamLogo?: string;
+  teamName:string;
   players: Player[];
 }
 
