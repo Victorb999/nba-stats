@@ -39,18 +39,18 @@ function Teams() {
         {teams.map((team) => {
           return (
             team.isNBAFranchise && (
-              <div key={team.teamId} className={styles.team}>
-                <div className={team.urlName}>
+              <div key={team.teamId} className={styles.team + " " + team.urlName}>
+              
                   <Link href={`/team/${team.urlName}`} passHref>
                     <a><Image
-                      width={50}
-                      height={50}
+                      width={80}
+                      height={80}
                       src={`https://cdn.nba.com/logos/nba/${team.teamId}/global/L/logo.svg`}
                       alt={team.nickname}
                       objectFit="cover"
                     /></a>
                   </Link>
-                </div>
+                
               </div>
             )
           );

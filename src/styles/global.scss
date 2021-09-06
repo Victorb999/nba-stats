@@ -23,6 +23,12 @@
   --secondary:#C8102E;
 
   --degrade-1: linear-gradient(90deg, #FF0A54 0%, #20A4F3 100%);
+  --degrade-2: linear-gradient(180deg, #DDDECC 0%, #F9FCE7 100%);
+
+  --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  --font-1:'Bebas Neue',sans-serif;
+  --font-2:'Comfortaa',sans-serif;
 
   --hawks: #E13A3E;
   --celtics: #007239;
@@ -77,12 +83,12 @@ body,
 input,
 textarea,
 button {
-  font: 500 1rem 'Comfortaa',sans-serif;
+  font: 500 1rem var(--font-2);
   color: var(--gray-5);
 }
 h1,h2,h3,h4,h5,h5{
   font-weight: 600;
-  font-family: 'Bebas Neue',sans-serif;
+  font-family: var(--font-1);
   color: var(--gray-5);  
 }
 h1 {

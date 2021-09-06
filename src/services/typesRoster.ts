@@ -4,6 +4,7 @@ export interface Player {
 }
 
 export interface Standard {
+  teamName?:string;
   teamId: string;
   teamLogo?: string;
   players: Player[];

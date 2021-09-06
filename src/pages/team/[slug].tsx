@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { api } from "../../services/api";
 import { Standard } from "../../services/typesRoster";
 import Image from "next/image";
+import styles from "./styles.module.scss";
 
 type Team = {
   city: string;
@@ -24,27 +25,42 @@ type TeamProps = {
 
 export default function Team({ teamEdit }: TeamProps) {
   return (
-    <div>
-      <Image
-        width={150}
-        height={150}
-        src={`https://cdn.nba.com/logos/nba/${teamEdit.teamId}/global/L/logo.svg`}
-        alt={teamEdit.teamId}
-        objectFit="cover"
-      />
+    <div className={styles.teamContainer}>
+      <div className={styles.teamInfo}>
+      <div className={styles.teamImg}>
+        <Image
+          width={150}
+          height={150}
+          src={`https://cdn.nba.com/logos/nba/${teamEdit.teamId}/global/L/logo.svg`}
+          alt={teamEdit.teamId}
+          objectFit="cover"
+        />
+        </div>
+        <div className={styles.teamName + " " + teamEdit.teamName}>
+          {teamEdit.teamName}
+        </div>
+      </div>
 
-      {teamEdit.players.map((team) => {
-        return (
-          <Image
-            width={150}
-            height={150}
-            src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
-            alt={team.personId}
-            key={team.personId}
-            objectFit="cover"
-          />
-        );
-      })}
+      <div className={styles.teamGrid}>
+        {teamEdit.players.map((team) => {
+          return (
+            <div className={styles.teamPlayer} key={team.personId}>
+              <div className={styles.teamImg}>
+                <Image
+                  width={150}
+                  height={150}
+                  src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
+                  alt={team.personId}
+                  objectFit="cover"
+                />
+              </div>
+              <div className={styles.playerName + " " + teamEdit.teamName}>
+                {team.personId}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -76,6 +92,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const team: Standard = data.league.standard;
 
   let teamEdit: Standard = {
+    teamName: slug,
     teamId: team.teamId,
     teamLogo: `https://cdn.nba.com/logos/nba/${team.teamId}/global/L/logo.svg`,
     players: team.players,

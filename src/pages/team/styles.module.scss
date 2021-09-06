@@ -1,0 +1,89 @@
+.teamContainer {
+  margin: 1rem;
+  display: flex;
+  .teamInfo {
+    background: var(--degrade-2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    min-width: 10rem;
+    height: 20vh;
+    flex-direction: column;
+  }
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+    padding-bottom: 1rem;
+    .teamPlayer {
+      background: var(--degrade-2);
+      display: flex;
+      border-radius: 1rem 1rem 0 0;
+      flex-direction: column;
+      .teamImg{
+        display: flex;
+        width: 100%;
+      }
+      .playerName {
+        display: flex;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 1rem 1rem;
+        width: 100%;
+        color: var(--white);
+        padding: 1rem;
+        text-align: center;
+        font-family: var(--font-1);
+        font-size: 1.25rem;
+      }
+      .teamImg{
+        display: flex;
+        width: 100%;
+      }
+      .playerName {
+        display: flex;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 1rem 1rem;
+        width: 100%;
+        color: var(--white);
+        padding: 1rem;
+        text-align: center;
+        font-family: var(--font-1);
+        font-size: 1.25rem;
+      }
+      .teamImg{
+        display: flex;
+        width: 100%;
+      }
+      .playerName {
+        display: flex;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 1rem 1rem;
+        width: 100%;
+        color: var(--white);
+        padding: 1rem;
+        text-align: center;
+        font-family: var(--font-1);
+        font-size: 1.25rem;
+      }
+    }
+  }
+  .teamImg{
+    display: flex;
+    width: 100%;
+  }
+  .playerName,.teamName {
+    display: flex;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 1rem 1rem;
+    width: 100%;
+    color: var(--white);
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-1);
+    font-size: 1.25rem;
+  }
+}
