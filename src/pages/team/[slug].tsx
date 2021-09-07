@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
+import Head from 'next/head';
+
 import { api } from "../../services/api";
 import { Standard } from "../../services/typesRoster";
-import Image from "next/image";
 import styles from "./styles.module.scss";
-import { usePlayer } from "../../contexts/PlayerContext";
+import { useTheme } from "../../contexts/ThemeContext";
+
 
 type Team = {
   city: string;
@@ -35,8 +38,14 @@ const toBase64 = (str:string) =>
     ? Buffer.from(str).toString('base64')
     : window.btoa(str)
 
+  const { darkTheme } = useTheme();
+
+
   return (
-    <div className={styles.teamContainer}>
+    <div className={darkTheme ? styles.teamContainerDark: styles.teamContainerlight}>
+      <Head>
+        <title>{teamEdit.teamName.toUpperCase()} | NBA stats</title>
+      </Head>
       <div className={styles.teamInfo}>
       <div className={styles.teamImg}>
         <Image
