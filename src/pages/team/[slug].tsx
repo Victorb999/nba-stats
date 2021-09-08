@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
+import ImageWithFallback from "../../utils/ImageWithCallBack";
 
 import { api } from "../../services/api";
 import { Player, Standard } from "../../services/typesRoster";
@@ -27,15 +28,6 @@ type TeamProps = {
 };
 
 export default function Team({ teamEdit }: TeamProps) {
-  const shimmer = () => `<svg width="342" height="342" viewBox="0 0 342 342" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M171 192.375C224.104 192.375 267.188 149.291 267.188 96.1875C267.188 43.084 224.104 0 171 0C117.896 0 74.8125 43.084 74.8125 96.1875C74.8125 149.291 117.896 192.375 171 192.375ZM256.5 213.75H219.695C204.866 220.563 188.367 224.438 171 224.438C153.633 224.438 137.201 220.563 122.305 213.75H85.5C38.2746 213.75 0 252.025 0 299.25V309.938C0 327.639 14.3613 342 32.0625 342H309.938C327.639 342 342 327.639 342 309.938V299.25C342 252.025 303.725 213.75 256.5 213.75Z" fill="#324A5F"/>
-  </svg>
-  `;
-  const toBase64 = (str: string) =>
-    typeof window === "undefined"
-      ? Buffer.from(str).toString("base64")
-      : window.btoa(str);
-
   const { darkTheme } = useTheme();
 
   return (
@@ -53,7 +45,7 @@ export default function Team({ teamEdit }: TeamProps) {
             <Image
               width={150}
               height={150}
-              src={`https://cdn.nba.com/logos/nba/${teamEdit.teamId}/global/L/logo.svg`}
+              src={`https://cdn.nba.com/logos/nba/${teamEdit.teamId}/global/D/logo.svg`}
               alt={teamEdit.teamId}
               objectFit="cover"
             />
@@ -63,8 +55,10 @@ export default function Team({ teamEdit }: TeamProps) {
           </div>
         </div>
         <div className={styles.teamInfoContainer}>
+          <div className={styles.statusTitle + " " + teamEdit.teamName}>
+            stats
+          </div>
           <div className={styles.teamStats}>Some stats</div>
-          <div className={styles.teamName + " " + teamEdit.teamName}>stats</div>
         </div>
       </div>
 
@@ -72,17 +66,14 @@ export default function Team({ teamEdit }: TeamProps) {
         {teamEdit.players.map((team) => {
           return (
             <div className={styles.teamPlayer} key={team.personId}>
-              <div className={styles.teamImg}>
-                <Image
+              <div className={styles.playerImg}>
+                <ImageWithFallback
                   width={200}
                   height={200}
                   src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
                   alt={team.personId}
                   objectFit="cover"
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    shimmer()
-                  )}`}
+                  fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
                 />
               </div>
               <div className={styles.playerName + " " + teamEdit.teamName}>
