@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
 import ImageWithFallback from "../../utils/ImageWithCallBack";
+import Link from "next/link";
 
 import { api } from "../../services/api";
 import { Player, Standard } from "../../services/typesRoster";
@@ -77,7 +78,9 @@ export default function Team({ teamEdit }: TeamProps) {
                 />
               </div>
               <div className={styles.playerName + " " + teamEdit.teamName}>
-                {team.playerName}
+                <Link href={`/player/${team.personId}`} passHref>
+                  <div className="navbar-brand">{team.playerName}</div>
+                </Link>
               </div>
             </div>
           );
