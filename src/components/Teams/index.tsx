@@ -5,32 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./teams.module.scss";
-
-type Team = {
-  city: string;
-  fullName: string;
-  isNBAFranchise: boolean;
-  confName: string;
-  tricode: string;
-  teamShortName: string;
-  divName: string;
-  isAllStar: boolean;
-  nickname: string;
-  urlName: string;
-  teamId: string;
-  altCityName: string;
-};
+import { useTeam } from "../../contexts/TeamContext";
 
 function Teams() {
-  const [teams, setTeams] = useState<Team[]>([] as Team[]);
+  const { getTeams, teams } = useTeam();
+
+  // const getTeams = useCallback(async () => {
+  //   const res = await api.get("/teams.json");
+  //   setTeams(res.data.league.vegas);
+  // },[]);
 
   useEffect(() => {
-    const getTeams = async () => {
-      const res = await api.get("teams.json");
-      setTeams(res.data.league.vegas);
-    };
     getTeams();
-  }, []);
+  }, [getTeams]);
 
   return (
     <div className={styles.containerTeams}>
@@ -39,18 +26,21 @@ function Teams() {
         {teams.map((team) => {
           return (
             team.isNBAFranchise && (
-              <div key={team.teamId} className={styles.team + " " + team.urlName}>
-              
-                  <Link href={`/team/${team.urlName}`} passHref>
-                    <a><Image
+              <div
+                key={team.teamId}
+                className={styles.team + " " + team.urlName}
+              >
+                <Link href={`/team/${team.urlName}`} passHref>
+                  <a>
+                    <Image
                       width={80}
                       height={80}
                       src={`https://cdn.nba.com/logos/nba/${team.teamId}/global/L/logo.svg`}
                       alt={team.nickname}
                       objectFit="cover"
-                    /></a>
-                  </Link>
-                
+                    />
+                  </a>
+                </Link>
               </div>
             )
           );

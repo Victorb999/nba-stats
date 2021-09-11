@@ -1,0 +1,17 @@
+.playerContainer{
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  .playerInfo{
+    display: block;
+  }
+
+  .playerCareer{
+    display: flex;
+    flex-direction: column;
+  }
+  .playerStats{
+    display: flex;
+    flex-direction: column;
+  }
+}
