@@ -3,7 +3,8 @@ import {
   ReactNode,
   useState,
   useContext,
-  useEffect,useCallback
+  useEffect,
+  useCallback,
 } from "react";
 import { api } from "../services/api";
 
@@ -25,43 +26,47 @@ type Team = {
 type TeamContextData = {
   teams: Team[];
   getTeams: () => void;
-  getTeam:(id:string) => Team;
-  getTeamName:(id:string) => string;
+  getTeam: (id: string) => Team;
+  getTeamName: (id: string) => string;
 };
 type TeamContextProviderProps = {
   children: ReactNode;
 };
 export const TeamContext = createContext({} as TeamContextData);
 
-export function TeamContextProvider({
-  children,
-}: TeamContextProviderProps) {
+export function TeamContextProvider({ children }: TeamContextProviderProps) {
   const [teams, setTeams] = useState<Team[]>([] as Team[]);
 
   const getTeams = useCallback(async () => {
     const res = await api.get("/teams.json");
     setTeams(res.data.league.vegas);
-  },[]);
+  }, []);
 
   useEffect(() => {
     getTeams();
   }, [getTeams]);
 
-  function getTeam(id: string){
-    if(teams.length === 0){
+  function getTeam(id: string) {
+    if (teams.length === 0) {
       return teams;
     }
-    const team = teams.filter( team => { return team.teamId == id})
+    const team = teams.filter((team) => {
+      return team.teamId == id;
+    });
     return team[0];
   }
-  function getTeamName(id: string){
-    const team = teams.filter( team => { return team.teamId == id})
-    return team[0].nickname;
+  function getTeamName(id: string) {
+    if (teams.length === 0) {
+      return "";
+    }
+    const team = teams.filter((team) => {
+      return team.teamId == id;
+    });
+    return team[0].nickname.toLowerCase();
   }
 
-
   return (
-    <TeamContext.Provider value={{ teams, getTeams, getTeam,getTeamName }}>
+    <TeamContext.Provider value={{ teams, getTeams, getTeam, getTeamName }}>
       {children}
     </TeamContext.Provider>
   );
