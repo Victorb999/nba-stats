@@ -69,10 +69,7 @@ function Player({ player, stats }) {
         })}
       </div>
       <div className={styles.playerStats}>
-        <h2>Stats</h2>
-        <p>
-          <b>seasonYear</b>: {stats.seasonYear}
-        </p>
+        <h2>Career Stats</h2>
         <p>
           <b>ppg</b>: {stats.ppg}
         </p>
@@ -85,9 +82,9 @@ function Player({ player, stats }) {
         <p>
           <b>mpg</b>: {stats.mpg}
         </p>
-        <p>
+        {/* <p>
           <b>topg</b>: {stats.topg}
-        </p>
+        </p> */}
         <p>
           <b>spg</b>: {stats.spg}
         </p>
@@ -187,7 +184,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const stats = await api
     .get(`/players/${params.slug}_profile.json`)
     .then((stats) => {
-      return stats.data.league.standard.stats.latest;
+      return stats.data.league.standard.stats.careerSummary;
     });
 
   // Pass data to the page via props
