@@ -1,59 +1,103 @@
 .playerContainer {
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem;
-  h2{
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+  h2 {
     display: flex;
     align-items: center;
-    div{
+    margin-bottom: 0.50rem;
+    div {
       margin-right: 0.75rem !important;
     }
-  }
-  .playerTitle {
-    display: flex;
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    color: var(--white);
-    padding: 1rem;
-    font-family: var(--font-1);
-    text-align: center;
-    justify-content: center;
-    justify-self: last baseline;
-    font-size: 1.25rem;
-  }
-  .playerTitleBottom {
-    display: flex;
-    border-radius: 0 0 1rem 1rem;
-    width: 100%;
-    color: var(--white);
-    padding: 1rem;
-    font-family: var(--font-1);
-    text-align: center;
-    justify-content: center;
-    justify-self: last baseline;
-    font-size: 1.25rem;
-    cursor: pointer;
   }
   .playerPhoto {
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
+    border-radius: 1rem;
     margin: 0;
     padding: 0;
+    display: grid;
+    .playerPhotoContainer {
+      padding: 0rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .playerInfo {
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
+    border-radius: 1rem;
+    .playerInfoContainer {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      div:first-child {
+        margin-right: 2rem;
+      }
+    }
   }
   .playerCareer {
     display: flex;
     flex-direction: column;
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
+    border-radius: 1rem;
+    .playerCareerContainer {
+      padding: 1rem;
+    }  
   }
+}
+
+.playerSubContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
   .playerStats {
     display: flex;
     flex-direction: column;
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
+    border-radius: 1rem;
+    margin: 1rem;
+    width: 80vw;
+  }
+  .playerStatsContainer {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    div:first-child {
+      margin-right: 2rem;
+    }
   }
 }
+
+.playerTitleBottom {
+  display: flex;
+  border-radius: 0 0 1rem 1rem;
+  width: 100%;
+  color: var(--white);
+  padding: 1rem;
+  font-family: var(--font-1);
+  text-align: center;
+  justify-content: center;
+  justify-self: last baseline;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.playerTitle {
+  display: flex;
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+  color: var(--white);
+  padding: 1rem;
+  font-family: var(--font-1);
+  text-align: center;
+  justify-content: center;
+  justify-self: last baseline;
+  font-size: 1.25rem;
+}
+
