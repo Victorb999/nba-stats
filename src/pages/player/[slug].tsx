@@ -1,22 +1,24 @@
 import { GetServerSideProps } from "next";
+import Image from "next/image";
+import Head from "next/head";
+
 import { api } from "../../services/api";
 
 import ImageWithFallback from "../../utils/ImageWithCallBack";
-import { Standard } from "../../services/typesPlayer";
-
-import Head from "next/head";
-import Image from "next/image";
 import { useTeam } from "../../contexts/TeamContext";
+import { Standard, CareerSummary } from "../../services/typesPlayer";
 
 import styles from "./styles.module.scss";
-function Player({ player, stats }) {
+
+type PlayerProps = {
+  player: Standard;
+  stats: CareerSummary;
+};
+
+function Player({ player, stats }: PlayerProps) {
   // Render data...
   const { getTeam, getTeamName } = useTeam();
 
-  // useEffect(()=>{
-  //   console.log("fgas")
-  //   getTeams();
-  // },[getTeams]);
   const teamName = getTeamName(player.teamId);
 
   return (
