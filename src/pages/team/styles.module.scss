@@ -3,7 +3,7 @@
   min-width: 10rem;
   .teamInfoContainer{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     display: grid;
     margin-bottom: 1rem;
   }
@@ -16,7 +16,7 @@
   padding-bottom: 1rem;
   .teamPlayer {
     display: grid;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     //flex-direction: column;
   }
 }
@@ -38,7 +38,7 @@
 .playerName,
 .teamName {
   display: flex;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: var(--border-radius-bottom);
   width: 100%;
   color: var(--white);
   padding: 1rem;
@@ -51,7 +51,7 @@
 }
 .statusTitle {
   display: flex;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: var(--border-radius-top);
   width: 100%;
   color: var(--white);
   padding: 1rem;

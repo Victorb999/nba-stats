@@ -15,7 +15,7 @@
   .playerPhoto {
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     margin: 0;
     padding: 0;
     display: grid;
@@ -30,7 +30,7 @@
   .playerInfo {
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     margin-bottom: 1rem;
     .playerInfoContainer {
       padding: 1rem;
@@ -46,7 +46,7 @@
     flex-direction: column;
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     margin-bottom: 1rem;
     .playerCareerContainer {
       padding: 1rem;
@@ -64,7 +64,7 @@
     flex-direction: column;
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     margin: 1rem;
     width: 80vw;
   }
@@ -80,7 +80,7 @@
 
 .playerTitleBottom {
   display: flex;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: var(--border-radius-bottom);
   width: 100%;
   color: var(--white);
   padding: 1rem;
@@ -93,7 +93,7 @@
 }
 .playerTitle {
   display: flex;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: var(--border-radius-top);
   width: 100%;
   color: var(--white);
   padding: 1rem;
