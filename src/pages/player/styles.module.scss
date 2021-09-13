@@ -19,6 +19,7 @@
     margin: 0;
     padding: 0;
     display: grid;
+    margin-bottom: 1rem;
     .playerPhotoContainer {
       padding: 0rem;
       display: flex;
@@ -30,6 +31,7 @@
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
     border-radius: 1rem;
+    margin-bottom: 1rem;
     .playerInfoContainer {
       padding: 1rem;
       display: flex;
@@ -45,6 +47,7 @@
     background-color: var(--gray-5);
     box-shadow: 0px 2px 4px var(--black);
     border-radius: 1rem;
+    margin-bottom: 1rem;
     .playerCareerContainer {
       padding: 1rem;
     }  
