@@ -96,7 +96,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = res.data.league.vegas;
 
   const teams = data.filter((team: TeamNBA) => {
-    return team.isNBAFranchise === true || team.urlName !== null;
+    return team.isNBAFranchise === true;
   });
 
   const paths = teams.map((team: TeamNBA) => {
