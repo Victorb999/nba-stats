@@ -75,7 +75,6 @@ export default function Team({ teamEdit }: TeamProps) {
                   height={200}
                   src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
                   alt={team.personId}
-                  objectFit="cover"
                   fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
                 />
               </div>
