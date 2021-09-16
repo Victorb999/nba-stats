@@ -4,8 +4,9 @@ import {
   useState,
   useContext,
   useEffect,
-  useCallback,
+  useCallback
 } from "react";
+import Team from "../pages/team/[slug]";
 import { api } from "../services/api";
 
 type Team = {
@@ -48,10 +49,11 @@ export function TeamContextProvider({ children }: TeamContextProviderProps) {
 
   function getTeam(id: string) {
     if (teams.length === 0) {
-      return teams;
+      const team = {} as Team;
+      return team;
     }
     const team = teams.filter((team) => {
-      return team.teamId == id;
+      return team.teamId === id;
     });
     return team[0];
   }
@@ -60,7 +62,7 @@ export function TeamContextProvider({ children }: TeamContextProviderProps) {
       return "";
     }
     const team = teams.filter((team) => {
-      return team.teamId == id;
+      return team.teamId === id;
     });
     return team[0].nickname.toLowerCase();
   }
