@@ -5,8 +5,9 @@ import { Header } from "../components/Header";
 import { PlayerContextProvider } from "../contexts/PlayerContext";
 import { ThemeContextProvider } from "../contexts/ThemeContext";
 import { TeamContextProvider } from "../contexts/TeamContext";
+import { AppProps } from "next/dist/shared/lib/router/router";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeContextProvider>
       <TeamContextProvider>
