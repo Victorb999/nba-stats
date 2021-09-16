@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 import ImageWithFallback from "../../utils/ImageWithCallBack";
 import { useTeam } from "../../contexts/TeamContext";
 import { Standard, CareerSummary } from "../../services/typesPlayer";
+import { ParsedUrlQuery } from "querystring";
 
 import styles from "./styles.module.scss";
 
@@ -155,9 +156,12 @@ function Player({ player, stats }: PlayerProps) {
   );
 }
 
+interface Params extends ParsedUrlQuery {
+  slug: string;
+}
 // This gets called on every request
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  //const data = { player: params.slug };
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const params = ctx.params as Params;
 
   const players = await api.get("/players.json").then((player) => {
     return player.data.league.standard;

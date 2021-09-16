@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import { api } from "../../services/api";
 import { Player, Standard } from "../../services/typesRoster";
+import { ParsedUrlQuery } from "querystring";
+
 import styles from "./styles.module.scss";
 import { useTheme } from "../../contexts/ThemeContext";
 
@@ -108,9 +110,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: "blocking"
   };
 };
+interface Params extends ParsedUrlQuery {
+  slug: string;
+}
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { slug } = ctx.params;
+  const { slug } = ctx.params as Params;
 
   const { data } = await api.get(`/teams/${slug}/roster.json`);
 
