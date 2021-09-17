@@ -25,7 +25,7 @@ function Teams() {
                 className={styles.team + " " + team.urlName}
               >
                 <Link href={`/team/${team.urlName}`} passHref>
-                  <a href="#">
+                  <div className="navbar-brand">
                     <Image
                       width={80}
                       height={80}
@@ -33,7 +33,7 @@ function Teams() {
                       alt={team.nickname}
                       objectFit="cover"
                     />
-                  </a>
+                  </div>
                 </Link>
               </div>
             )

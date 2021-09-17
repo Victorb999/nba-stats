@@ -109,6 +109,12 @@ h2 {
 button {
   cursor: pointer;
 }
+.containerCenter{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hawks {
   background-color: var(--hawks);
 }

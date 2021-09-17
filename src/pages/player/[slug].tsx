@@ -66,7 +66,7 @@ function Player({ player, stats }: PlayerProps) {
               <h2>{`${player.heightMeters}m `}</h2>
               <h2>{`${player.weightKilograms}Kg`} </h2>
               <h2>{getAge(player.dateOfBirthUTC)} years old</h2>
-              <h2>Years as pro: {player.yearsPro}</h2>
+              <h2>{player.yearsPro} years as pro </h2>
             </div>
             <div>
               <h2>Pick #{player.draft.pickNum} </h2>
