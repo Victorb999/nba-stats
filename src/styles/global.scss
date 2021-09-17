@@ -95,9 +95,10 @@ h3,
 h4,
 h5,
 h5 {
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-1);
-  color: var(--gray-5);
+  color: var(--gray-1);
+  letter-spacing: 0.1rem
 }
 h1 {
   font-size: 2rem;
@@ -108,27 +109,6 @@ h2 {
 button {
   cursor: pointer;
 }
-
-.light {
-  background-color: var(--gray-1);
-  color: var(--gray-5);
-  min-height: 100vh;
-}
-.dark {
-  background-color: var(--gray-6);
-  color: var(--gray-1);
-  min-height: 100vh;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h5 {
-    letter-spacing: 0.15rem;
-    color: var(--gray-1);
-  }
-}
-
 .hawks {
   background-color: var(--hawks);
 }

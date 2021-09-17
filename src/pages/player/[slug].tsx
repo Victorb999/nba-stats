@@ -1,3 +1,5 @@
+import styles from "./styles.module.scss";
+
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
@@ -8,8 +10,7 @@ import ImageWithFallback from "../../utils/ImageWithCallBack";
 import { useTeam } from "../../contexts/TeamContext";
 import { Standard, CareerSummary } from "../../services/typesPlayer";
 import { ParsedUrlQuery } from "querystring";
-
-import styles from "./styles.module.scss";
+import { getAge } from "../../utils/getAge";
 
 type PlayerProps = {
   player: Standard;
@@ -17,7 +18,6 @@ type PlayerProps = {
 };
 
 function Player({ player, stats }: PlayerProps) {
-  // Render data...
   const { getTeam, getTeamName } = useTeam();
 
   const teamName = getTeamName(player.teamId);
@@ -65,7 +65,7 @@ function Player({ player, stats }: PlayerProps) {
               <h2>{player.teamSitesOnly.posFull}</h2>
               <h2>{`${player.heightMeters}m `}</h2>
               <h2>{`${player.weightKilograms}Kg`} </h2>
-              <h2>{player.dateOfBirthUTC}</h2>
+              <h2>{getAge(player.dateOfBirthUTC)} years old</h2>
               <h2>Years as pro: {player.yearsPro}</h2>
             </div>
             <div>

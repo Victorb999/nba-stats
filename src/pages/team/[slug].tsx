@@ -1,3 +1,5 @@
+import styles from "./styles.module.scss";
+
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
@@ -7,9 +9,6 @@ import Link from "next/link";
 import { api } from "../../services/api";
 import { Player, Standard } from "../../services/typesRoster";
 import { ParsedUrlQuery } from "querystring";
-
-import styles from "./styles.module.scss";
-import { useTheme } from "../../contexts/ThemeContext";
 
 type TeamNBA = {
   city: string;
@@ -31,14 +30,8 @@ type TeamProps = {
 };
 
 export default function Team({ teamEdit }: TeamProps) {
-  const { darkTheme } = useTheme();
-
   return (
-    <div
-      className={
-        darkTheme ? styles.teamContainerDark : styles.teamContainerlight
-      }
-    >
+    <div className={styles.teamContainer}>
       <Head>
         <title>{teamEdit.teamName.toUpperCase()} | NBA stats</title>
       </Head>
@@ -80,7 +73,7 @@ export default function Team({ teamEdit }: TeamProps) {
               </div>
               <div className={styles.playerName + " " + teamEdit.teamName}>
                 <Link href={`/player/${team.personId}`} passHref>
-                  <div className="navbar-brand">{team.playerName}</div>
+                  <div className="navbar-brand link">{team.playerName}</div>
                 </Link>
               </div>
             </div>

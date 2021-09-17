@@ -8,9 +8,8 @@ export function Header() {
     <header className={styles.headerContainer}>
       <Link href="/" passHref>
         <div className="navbar-brand">
-
           <Image
-            width={159}
+            width={139}
             height={24}
             src="/logo.svg"
             alt="logo"

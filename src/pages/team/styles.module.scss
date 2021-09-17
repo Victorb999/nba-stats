@@ -1,3 +1,17 @@
+.teamContainer {
+  margin: 1rem;
+  display: flex;
+  .teamInfoContainer {
+    background-color: var(--gray-5);
+    box-shadow: 0px 2px 4px var(--black);
+  }
+  .teamGrid {
+    .teamPlayer {
+      background-color: var(--gray-5);
+      box-shadow: 0px 2px 4px var(--black);
+    }
+  }
+}
 .teamInfo {
   margin-right: 2rem;
   min-width: 10rem;
@@ -45,9 +59,13 @@
   font-family: var(--font-1);
   text-align: center;
   justify-content: center;
-  justify-self: last baseline;
   font-size: 1.25rem;
-  cursor: pointer;
+  div{
+    cursor: pointer;
+    &:hover{
+      color:var(--black);
+    }
+  }
 }
 .statusTitle {
   display: flex;
@@ -61,38 +79,6 @@
   justify-self: last baseline;
   font-size: 1.25rem;
 }
-
-.teamContainerDark {
-  margin: 1rem;
-  display: flex;
-  .teamInfoContainer {
-    background-color: var(--gray-5);
-    box-shadow: 0px 2px 4px var(--black);
-  }
-  .teamGrid {
-    .teamPlayer {
-      background-color: var(--gray-5);
-      box-shadow: 0px 2px 4px var(--black);
-    }
-  }
-}
-.teamContainerLight {
-  margin: 1rem;
-  display: flex;
-  .teamInfoContainer {
-    background: var(--degrade-2);
-  }
-  .teamGrid {
-    .teamPlayer {
-      background: var(--degrade-2);
-    }
-  }
-  .playerName,
-  .teamName {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-}
-
 @media (max-width: 1000px) {
   .teamGrid {
     display: grid;

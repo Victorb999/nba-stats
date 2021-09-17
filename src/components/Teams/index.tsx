@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import styles from "./teams.module.scss";
+
+import { useEffect } from "react";
+import { useTeam } from "../../contexts/TeamContext";
 
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "./teams.module.scss";
-import { useTeam } from "../../contexts/TeamContext";
-
 function Teams() {
   const { getTeams, teams } = useTeam();
-
-  // const getTeams = useCallback(async () => {
-  //   const res = await api.get("/teams.json");
-  //   setTeams(res.data.league.vegas);
-  // },[]);
 
   useEffect(() => {
     getTeams();
@@ -31,7 +25,7 @@ function Teams() {
                 className={styles.team + " " + team.urlName}
               >
                 <Link href={`/team/${team.urlName}`} passHref>
-                  <a>
+                  <a href="#">
                     <Image
                       width={80}
                       height={80}
