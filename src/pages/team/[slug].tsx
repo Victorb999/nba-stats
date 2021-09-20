@@ -71,7 +71,11 @@ export default function Team({ team }: TeamProps) {
                 <ImageWithFallback
                   width={200}
                   height={200}
-                  src={player.personImg}
+                  src={
+                    typeof player.personImg === "undefined"
+                      ? ""
+                      : player.personImg
+                  }
                   alt={player.personId}
                   fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
                 />
@@ -112,7 +116,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as Params;
 
   const team: StandardWithLogo = await getRosterTeam(slug);
-
   const players: PlayerStandard[] = await getAllPlayers();
 
   const getPlayer = (id: string) => {

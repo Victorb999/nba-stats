@@ -6,7 +6,7 @@ import {
   useEffect,
   useCallback
 } from "react";
-import { api, getAllNBATeams } from "../services/api";
+import { getAllNBATeams } from "../services/api";
 
 type Team = {
   city: string;
