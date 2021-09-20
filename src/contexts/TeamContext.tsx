@@ -6,9 +6,9 @@ import {
   useEffect,
   useCallback
 } from "react";
-import { api } from "../services/api";
+import { api, getAllNBATeams } from "../services/api";
 
-type TeamType = {
+type Team = {
   city: string;
   fullName: string;
   isNBAFranchise: boolean;
@@ -24,9 +24,9 @@ type TeamType = {
 };
 
 type TeamContextData = {
-  teams: TeamType[];
+  teams: Team[];
   getTeams: () => void;
-  getTeam: (id: string) => TeamType;
+  getTeam: (id: string) => Team;
   getTeamName: (id: string) => string;
 };
 type TeamContextProviderProps = {
@@ -35,11 +35,11 @@ type TeamContextProviderProps = {
 export const TeamContext = createContext({} as TeamContextData);
 
 export function TeamContextProvider({ children }: TeamContextProviderProps) {
-  const [teams, setTeams] = useState<TeamType[]>([] as TeamType[]);
+  const [teams, setTeams] = useState<Team[]>([] as Team[]);
 
   const getTeams = useCallback(async () => {
-    const res = await api.get("/teams.json");
-    setTeams(res.data.league.vegas);
+    const res = await getAllNBATeams();
+    setTeams(res);
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export function TeamContextProvider({ children }: TeamContextProviderProps) {
 
   function getTeam(id: string) {
     if (teams.length === 0) {
-      const team = {} as TeamType;
+      const team = {} as Team;
       return team;
     }
     const team = teams.filter((team) => {

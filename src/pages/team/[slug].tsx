@@ -6,8 +6,15 @@ import Head from "next/head";
 import ImageWithFallback from "../../utils/ImageWithCallBack";
 import Link from "next/link";
 
-import { api } from "../../services/api";
-import { Player, Standard } from "../../services/typesRoster";
+import {
+  getAllNBATeams,
+  getAllPlayers,
+  getRosterTeam
+} from "../../services/api";
+import { Player, StandardWithLogo } from "../../services/typesRoster";
+
+import { Standard as PlayerStandard } from "../../services/typesPlayer";
+
 import { ParsedUrlQuery } from "querystring";
 
 type TeamNBA = {
@@ -26,14 +33,14 @@ type TeamNBA = {
 };
 
 type TeamProps = {
-  teamEdit: Standard;
+  team: StandardWithLogo;
 };
 
-export default function Team({ teamEdit }: TeamProps) {
+export default function Team({ team }: TeamProps) {
   return (
     <div className={styles.teamContainer}>
       <Head>
-        <title>{teamEdit.teamName.toUpperCase()} | NBA stats</title>
+        <title>{team.teamName.toUpperCase()} | NBA stats</title>
       </Head>
       <div className={styles.teamInfo}>
         <div className={styles.teamInfoContainer}>
@@ -41,39 +48,37 @@ export default function Team({ teamEdit }: TeamProps) {
             <Image
               width={150}
               height={150}
-              src={`https://cdn.nba.com/logos/nba/${teamEdit.teamId}/global/D/logo.svg`}
-              alt={teamEdit.teamId}
+              src={team.teamLogo}
+              alt={team.teamId}
               objectFit="cover"
             />
           </div>
-          <div className={styles.teamName + " " + teamEdit.teamName}>
-            {teamEdit.teamName}
+          <div className={styles.teamName + " " + team.teamName}>
+            {team.teamName}
           </div>
         </div>
         <div className={styles.teamInfoContainer}>
-          <div className={styles.statusTitle + " " + teamEdit.teamName}>
-            stats
-          </div>
+          <div className={styles.statusTitle + " " + team.teamName}>stats</div>
           <div className={styles.teamStats}>Some stats</div>
         </div>
       </div>
 
       <div className={styles.teamGrid}>
-        {teamEdit.players.map((team) => {
+        {team.players.map((player) => {
           return (
-            <div className={styles.teamPlayer} key={team.personId}>
+            <div className={styles.teamPlayer} key={player.personId}>
               <div className={styles.playerImg}>
                 <ImageWithFallback
                   width={200}
                   height={200}
-                  src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${team.personId}.png`}
-                  alt={team.personId}
+                  src={player.personImg}
+                  alt={player.personId}
                   fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
                 />
               </div>
-              <div className={styles.playerName + " " + teamEdit.teamName}>
-                <Link href={`/player/${team.personId}`} passHref>
-                  <div className="navbar-brand link">{team.playerName}</div>
+              <div className={styles.playerName + " " + team.teamName}>
+                <Link href={`/player/${player.personId}`} passHref>
+                  <div className="navbar-brand link">{player.playerName}</div>
                 </Link>
               </div>
             </div>
@@ -85,12 +90,7 @@ export default function Team({ teamEdit }: TeamProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await api.get("teams.json");
-  const data = res.data.league.vegas;
-
-  const teams = data.filter((team: TeamNBA) => {
-    return team.isNBAFranchise === true;
-  });
+  const teams = await getAllNBATeams();
 
   const paths = teams.map((team: TeamNBA) => {
     return {
@@ -111,13 +111,9 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as Params;
 
-  const { data } = await api.get(`/teams/${slug}/roster.json`);
+  const team: StandardWithLogo = await getRosterTeam(slug);
 
-  const team: Standard = data.league.standard;
-
-  const players = await api.get("/players.json").then((player) => {
-    return player.data.league.standard;
-  });
+  const players: PlayerStandard[] = await getAllPlayers();
 
   const getPlayer = (id: string) => {
     const player = players.filter((player: Player) => {
@@ -126,14 +122,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return player[0];
   };
 
-  let teamEdit: Standard = {
-    teamName: slug,
-    teamId: team.teamId,
-    teamLogo: `https://cdn.nba.com/logos/nba/${team.teamId}/global/L/logo.svg`,
-    players: team.players
-  };
-
-  teamEdit.players.map((person) => {
+  team.players.map((person) => {
     person.personImg = `https://cdn.nba.com/headshots/nba/latest/1040x760/${person.personId}.png`;
     const player = getPlayer(person.personId);
     person.playerName = player.firstName + " " + player.lastName;
@@ -142,7 +131,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      teamEdit
+      team
     },
     revalidate: 60 * 60 * 24 // 24 hours
   };

@@ -6,9 +6,12 @@ export interface Player {
 
 export interface Standard {
   teamId: string;
-  teamLogo?: string;
-  teamName:string;
+  teamName: string;
   players: Player[];
+}
+
+export interface StandardWithLogo extends Standard {
+  teamLogo: string;
 }
 
 export interface Africa {
