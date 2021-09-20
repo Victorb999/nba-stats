@@ -4,7 +4,10 @@ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
 
-import { api } from "../../services/api";
+import {
+  getPlayer,
+  getPlayerProfile
+} from "../../services/api";
 
 import ImageWithFallback from "../../utils/ImageWithCallBack";
 import { useTeam } from "../../contexts/TeamContext";
@@ -163,20 +166,9 @@ interface Params extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const params = ctx.params as Params;
 
-  const players = await api.get("/players.json").then((player) => {
-    return player.data.league.standard;
-  });
+  const player = await getPlayer(params.slug);
 
-  let player = players.filter((player: Standard) => {
-    return player.personId === params.slug;
-  });
-  player = player[0];
-
-  const stats = await api
-    .get(`/players/${params.slug}_profile.json`)
-    .then((stats) => {
-      return stats.data.league.standard.stats.careerSummary;
-    });
+  const stats = await getPlayerProfile(params.slug);
 
   // Pass data to the page via props
   return { props: { player, stats } };
