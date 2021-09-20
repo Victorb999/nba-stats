@@ -1,7 +1,10 @@
 import axios from "axios";
 
 import { Standard, StandardWithLogo } from "../services/typesRoster";
-import { Standard as PlayerStandard } from "../services/typesPlayer";
+import {
+  CareerSummary,
+  Standard as PlayerStandard
+} from "../services/typesPlayer";
 
 const date = new Date();
 const year = date.getFullYear();
@@ -41,13 +44,13 @@ export const getAllNBATeams = async () => {
   }
 };
 
-export const getRosterTeam = async (slug: string) => {
+export const getRosterTeam = async (id: string) => {
   try {
-    const { data } = await api.get(`/teams/${slug}/roster.json`);
+    const { data } = await api.get(`/teams/${id}/roster.json`);
     const team: Standard = data.league.standard;
 
     let teamPlus: StandardWithLogo = {
-      teamName: slug,
+      teamName: id,
       teamId: team.teamId,
       teamLogo: `https://cdn.nba.com/logos/nba/${team.teamId}/global/D/logo.svg`,
       players: team.players
@@ -63,11 +66,39 @@ export const getRosterTeam = async (slug: string) => {
 
 export const getAllPlayers = async () => {
   try {
-    const players = await api.get("/players.json");
-    return players.data.league.standard;
+    const { data } = await api.get("/players.json");
+    return data.league.standard;
   } catch (e) {
     console.error(e);
     const PlayerEmpty = [] as Array<PlayerStandard>;
+    return PlayerEmpty;
+  }
+};
+
+export const getPlayer = async (id: string) => {
+  try {
+    const { data } = await api.get("/players.json");
+
+    let players = data.league.standard;
+    players = players.filter((player: PlayerStandard) => {
+      return player.personId === id;
+    });
+
+    return players[0];
+  } catch (e) {
+    console.error(e);
+    const PlayerEmpty = {} as PlayerStandard;
+    return PlayerEmpty;
+  }
+};
+
+export const getPlayerProfile = async (id: string) => {
+  try {
+    const { data } = await api.get(`/players/${id}_profile.json`);
+    return data.league.standard.stats.careerSummary;
+  } catch (e) {
+    console.error(e);
+    const PlayerEmpty = [] as Array<CareerSummary>;
     return PlayerEmpty;
   }
 };
