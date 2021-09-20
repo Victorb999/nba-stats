@@ -1,3 +1,5 @@
+import { RegularSeason } from './typesPlayer';
+import { StandardStats, TeamStats } from './typesStats';
 import axios from "axios";
 
 import { Standard, StandardWithLogo } from "../services/typesRoster";
@@ -43,6 +45,22 @@ export const getAllNBATeams = async () => {
     return TeamEmpty;
   }
 };
+
+export const getTeamRegularSeasonStats = async (id:String) => {
+  try {
+    const { data } = await axios.get("https://data.nba.net/10s/prod/v1/2020/team_stats_rankings.json");
+
+    let teams = data.league.standard
+    teams = teams.regularSeason.teams.filter((team: TeamStats) => {
+      return team.teamId === id;
+    });
+    return teams[0];
+  } catch (e) {
+    console.error(e);
+    const TeamEmpty = {} as TeamStats;
+    return TeamEmpty;
+  }
+}
 
 export const getRosterTeam = async (id: string) => {
   try {

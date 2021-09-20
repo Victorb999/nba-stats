@@ -12,7 +12,7 @@
   --gray-2: #ccc9dc;
   --gray-3: #324a5f;
   --gray-4: #1b2a41;
-  --gray-5: #0C1015;
+  --gray-5: #1C2127;
   --gray-6: #030509;
 
   --green: #85ffc7;
@@ -115,6 +115,13 @@ button {
   align-items: center;
   justify-content: center;
 }
+.red{
+  color: var(--red);
+}
+.green{
+  color:var(--green);
+}
+
 .hawks {
   background-color: var(--hawks);
 }

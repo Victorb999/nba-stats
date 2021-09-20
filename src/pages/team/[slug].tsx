@@ -9,13 +9,17 @@ import Link from "next/link";
 import {
   getAllNBATeams,
   getAllPlayers,
-  getRosterTeam
+  getRosterTeam,
+  getTeamRegularSeasonStats
 } from "../../services/api";
 import { Player, StandardWithLogo } from "../../services/typesRoster";
 
 import { Standard as PlayerStandard } from "../../services/typesPlayer";
 
 import { ParsedUrlQuery } from "querystring";
+import { TeamStats } from "../../services/typesStats";
+import { useCallback, useEffect, useState } from "react";
+import Stats from "../../components/Stats";
 
 type TeamNBA = {
   city: string;
@@ -34,9 +38,12 @@ type TeamNBA = {
 
 type TeamProps = {
   team: StandardWithLogo;
+  statsRegular: TeamStats
 };
 
-export default function Team({ team }: TeamProps) {
+export default function Team({ team,statsRegular }: TeamProps) {
+  
+  
   return (
     <div className={styles.teamContainer}>
       <Head>
@@ -54,12 +61,15 @@ export default function Team({ team }: TeamProps) {
             />
           </div>
           <div className={styles.teamName + " " + team.teamName}>
-            {team.teamName}
+          <h2>{statsRegular.abbreviation} - {statsRegular.name} {statsRegular.nickname}</h2>
           </div>
         </div>
         <div className={styles.teamInfoContainer}>
           <div className={styles.statusTitle + " " + team.teamName}>stats</div>
-          <div className={styles.teamStats}>Some stats</div>
+          <div className={styles.teamStats}>
+            
+           <Stats statsRegular={statsRegular} />
+          </div>
         </div>
       </div>
 
@@ -132,10 +142,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     person.playerName = player.firstName + " " + player.lastName;
     return person;
   });
+  const statsRegular = await getTeamRegularSeasonStats(team.teamId);
 
   return {
     props: {
-      team
+      team,statsRegular
     },
     revalidate: 60 * 60 * 24 // 24 hours
   };
