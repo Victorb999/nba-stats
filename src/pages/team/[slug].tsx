@@ -116,6 +116,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as Params;
 
   const team: StandardWithLogo = await getRosterTeam(slug);
+
   const players: PlayerStandard[] = await getAllPlayers();
 
   const getPlayer = (id: string) => {
