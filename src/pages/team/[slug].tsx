@@ -38,12 +38,10 @@ type TeamNBA = {
 
 type TeamProps = {
   team: StandardWithLogo;
-  statsRegular: TeamStats
+  statsRegular: TeamStats;
 };
 
-export default function Team({ team,statsRegular }: TeamProps) {
-  
-  
+export default function Team({ team, statsRegular }: TeamProps) {
   return (
     <div className={styles.teamContainer}>
       <Head>
@@ -61,14 +59,18 @@ export default function Team({ team,statsRegular }: TeamProps) {
             />
           </div>
           <div className={styles.teamName + " " + team.teamName}>
-          <h2>{statsRegular.abbreviation} - {statsRegular.name} {statsRegular.nickname}</h2>
+            <h2>
+              {statsRegular.abbreviation} - {statsRegular.name}{" "}
+              {statsRegular.nickname}
+            </h2>
           </div>
         </div>
         <div className={styles.teamInfoContainer}>
-          <div className={styles.statusTitle + " " + team.teamName}>stats</div>
+          <div className={styles.statusTitle + " " + team.teamName}>
+            <h2>Stats</h2>
+          </div>
           <div className={styles.teamStats}>
-            
-           <Stats statsRegular={statsRegular} />
+            <Stats statsRegular={statsRegular} />
           </div>
         </div>
       </div>
@@ -146,7 +148,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      team,statsRegular
+      team,
+      statsRegular
     },
     revalidate: 60 * 60 * 24 // 24 hours
   };

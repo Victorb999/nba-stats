@@ -1,0 +1,17 @@
+.statsInfo{
+  // background-color: var(--gray-4);
+  border-bottom: 0.5px solid var(--gray-3);
+  padding: 0.5rem 0;
+  .spanTitle{
+    font-size: 1.25rem;
+    font-family: var(--font-1);
+    color: var(--blue-1);
+    letter-spacing: 0.2rem ;   
+  }
+  span{
+    font-weight: 500;
+    font-family: var(--font-1);
+    color: var(--gray-1);
+    letter-spacing: 0.1rem  
+  }
+}

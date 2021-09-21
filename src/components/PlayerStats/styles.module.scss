@@ -1,8 +1,45 @@
 .playerStatsContainer {
   padding: 1rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  grid-auto-rows: 1fr;
   h2{
     margin: 0.25rem;
+  }
+}
+.statsInfo{
+  // background-color: var(--gray-4);
+  border-bottom: 0.5px solid var(--gray-3);
+  border-right: 0.5px solid var(--gray-3);
+  padding: 0.5rem;
+  align-items: center;
+  .spanTitle{
+    font-size: 1.15rem;
+    font-family: var(--font-1);
+    color: var(--blue-1);
+    letter-spacing: 0.2rem ;   
+    cursor: default;
+  }
+  span{
+    font-weight: 500;
+    font-family: var(--font-1);
+    color: var(--gray-1);
+    letter-spacing: 0.1rem ;
+    cursor: default;
+  }
+  &:hover{
+    transition:  2s;
+    background-color: var(--gray-6);
+  }
+}
+
+@media (max-width: 600px) {
+  .playerStatsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+    padding-bottom: 1rem;
   }
 }

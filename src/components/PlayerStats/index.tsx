@@ -8,45 +8,125 @@ type PropsStats = {
 function PlayerStats({ stats }: PropsStats) {
   return (
     <div className={styles.playerStatsContainer}>
-      <div>
-        <h2>ppg: {stats.ppg}</h2>
-        <h2>rpg: {stats.rpg}</h2>
-        <h2>apg: {stats.apg}</h2>
-        <h2>mpg: {stats.mpg}</h2>
-        <h2>spg: {stats.spg}</h2>
-        <h2>bpg: {stats.bpg}</h2>
-        <h2>tpp: {stats.tpp}</h2>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[ppg] point per game: </span>{" "}
+        <span>{stats.ppg}</span>
       </div>
-      <div>
-        <h2>ftp: {stats.ftp}</h2>
-        <h2>fgp: {stats.fgp}</h2>
-        <h2>assists: {stats.assists}</h2>
-        <h2>blocks: {stats.blocks}</h2>
-        <h2>steals: {stats.steals}</h2>
-        <h2>turnovers: {stats.turnovers}</h2>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[rpg] rebots per game:</span>{" "}
+        <span>{stats.rpg}</span>
       </div>
-      <div>
-        <h2>offReb: {stats.offReb}</h2>
-        <h2>defReb: {stats.defReb}</h2>
-        <h2>totReb: {stats.totReb}</h2>
-        <h2>fgm: {stats.fgm}</h2>
-        <h2>fga: {stats.fga}</h2>
-        <h2>tpm: {stats.tpm}</h2>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[apg] assists per game:</span>{" "}
+        <span>{stats.apg}</span>
       </div>
-      <div>
-        <h2>tpa: {stats.tpa}</h2>
-        <h2>ftm: {stats.ftm}</h2>
-        <h2>fta: {stats.fta}</h2>
-        <h2>pFouls: {stats.pFouls}</h2>
-        <h2>points: {stats.points}</h2>
-        <h2>games played: {stats.gamesPlayed}</h2>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[mpg] minutes per game:</span>{" "}
+        <span>{stats.mpg}</span>
       </div>
-      <div>
-        <h2>games started: {stats.gamesStarted}</h2>
-        <h2>plus minus: {stats.plusMinus}</h2>
-        <h2>min: {stats.min}</h2>
-        <h2>dd2: {stats.dd2}</h2>
-        <h2>td3: {stats.td3}</h2>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[spg] steals per game:</span>{" "}
+        <span>{stats.spg}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[bpg] blocks per game: </span>{" "}
+        <span>{stats.bpg}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[tpp] turnovers per game:</span>{" "}
+        <span>{stats.tpp}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[ftp] free throw percentage:</span>{" "}
+        <span>{stats.ftp}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fgp] field goal percentage:</span>{" "}
+        <span>{stats.fgp}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>assists: </span>{" "}
+        <span>{stats.assists}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>blocks: </span>{" "}
+        <span>{stats.blocks}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>steals: </span>{" "}
+        <span>{stats.steals}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>turnovers: </span>{" "}
+        <span>{stats.turnovers}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>offensive rebounds: </span>{" "}
+        <span>{stats.offReb}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>defensive rebounds: </span>{" "}
+        <span>{stats.defReb}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>total rebounds: </span>{" "}
+        <span>{stats.totReb}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fgm] field goals made:</span>{" "}
+        <span>{stats.fgm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fga] field goals attempted: </span>{" "}
+        <span>{stats.fga}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[tpm] three point made: </span>{" "}
+        <span>{stats.tpm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[tpa] three point attempted: </span>{" "}
+        <span>{stats.tpa}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[ftm]: free throws made</span>{" "}
+        <span>{stats.ftm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fta]: free throws attempted</span>{" "}
+        <span>{stats.fta}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>personal fouls: </span>{" "}
+        <span>{stats.pFouls}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>points: </span>{" "}
+        <span>{stats.points}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>games played: </span>{" "}
+        <span>{stats.gamesPlayed}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>games started: </span>{" "}
+        <span>{stats.gamesStarted}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>plus minus: </span>{" "}
+        <span>{stats.plusMinus}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[min] minutes played: </span>{" "}
+        <span>{stats.min}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[dd2] double doubles: </span>{" "}
+        <span>{stats.dd2}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[td3] triple doubles: </span>{" "}
+        <span>{stats.td3}</span>
       </div>
     </div>
   );
