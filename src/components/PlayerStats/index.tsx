@@ -38,11 +38,35 @@ function PlayerStats({ stats }: PropsStats) {
       </div>
       <div className={styles.statsInfo}>
         <span className={styles.spanTitle}>[ftp] free throw percentage:</span>{" "}
-        <span>{stats.ftp}</span>
+        <span>{stats.ftp}%</span>
       </div>
       <div className={styles.statsInfo}>
         <span className={styles.spanTitle}>[fgp] field goal percentage:</span>{" "}
-        <span>{stats.fgp}</span>
+        <span>{stats.fgp}%</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fgm] field goals made:</span>{" "}
+        <span>{stats.fgm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fga] field goals attempted: </span>{" "}
+        <span>{stats.fga}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[tpm] three point made: </span>{" "}
+        <span>{stats.tpm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[tpa] three point attempted: </span>{" "}
+        <span>{stats.tpa}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[ftm]: free throws made</span>{" "}
+        <span>{stats.ftm}</span>
+      </div>
+      <div className={styles.statsInfo}>
+        <span className={styles.spanTitle}>[fta]: free throws attempted</span>{" "}
+        <span>{stats.fta}</span>
       </div>
       <div className={styles.statsInfo}>
         <span className={styles.spanTitle}>assists: </span>{" "}
@@ -72,30 +96,7 @@ function PlayerStats({ stats }: PropsStats) {
         <span className={styles.spanTitle}>total rebounds: </span>{" "}
         <span>{stats.totReb}</span>
       </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[fgm] field goals made:</span>{" "}
-        <span>{stats.fgm}</span>
-      </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[fga] field goals attempted: </span>{" "}
-        <span>{stats.fga}</span>
-      </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[tpm] three point made: </span>{" "}
-        <span>{stats.tpm}</span>
-      </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[tpa] three point attempted: </span>{" "}
-        <span>{stats.tpa}</span>
-      </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[ftm]: free throws made</span>{" "}
-        <span>{stats.ftm}</span>
-      </div>
-      <div className={styles.statsInfo}>
-        <span className={styles.spanTitle}>[fta]: free throws attempted</span>{" "}
-        <span>{stats.fta}</span>
-      </div>
+
       <div className={styles.statsInfo}>
         <span className={styles.spanTitle}>personal fouls: </span>{" "}
         <span>{stats.pFouls}</span>
