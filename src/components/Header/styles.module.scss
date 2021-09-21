@@ -13,4 +13,12 @@
   img{
     cursor: pointer;
   }
+  h2{
+    font-size: 2rem;
+    margin-left: 2rem;
+    cursor: pointer;
+    &:hover{
+      color: var(--gray-3);
+    }
+  }
 }

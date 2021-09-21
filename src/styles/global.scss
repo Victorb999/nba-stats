@@ -109,6 +109,13 @@ h2 {
 button {
   cursor: pointer;
 }
+.welcomeContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
 .containerCenter{
   height: 100vh;
   display: flex;

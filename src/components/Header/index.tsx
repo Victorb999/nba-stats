@@ -17,6 +17,16 @@ export function Header() {
           />
         </div>
       </Link>
+      <Link href="/teams" passHref>
+        <div className="navbar-brand">
+          <h2>Teams</h2>
+        </div>
+      </Link>
+      <Link href="/players" passHref>
+        <div className="navbar-brand">
+          <h2>Players</h2>
+        </div>
+      </Link>
     </header>
   );
 }

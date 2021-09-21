@@ -10,7 +10,6 @@ import ImageWithFallback from "../../utils/ImageWithCallBack";
 import { useTeam } from "../../contexts/TeamContext";
 import { Standard, CareerSummary } from "../../services/typesPlayer";
 import { ParsedUrlQuery } from "querystring";
-import { getAge } from "../../utils/getAge";
 import PlayerStats from "../../components/PlayerStats";
 import PlayerInfo from "../../components/PlayerInfo";
 

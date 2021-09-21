@@ -1,5 +1,4 @@
-import type { NextPage } from 'next'
-import Teams  from '../components/Teams'
+import type { NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
@@ -8,9 +7,12 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | NBA stats</title>
       </Head>
-      <Teams />
+      <div className="welcomeContainer">
+        <h1>Welcome to NBA stats</h1>
+        <h3>here you can search all about nba stuffs</h3>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
