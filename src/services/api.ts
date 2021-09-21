@@ -120,3 +120,15 @@ export const getPlayerProfile = async (id: string) => {
     return PlayerEmpty;
   }
 };
+
+
+export const getStandings = async () => {
+  try {
+    const { data } = await axios.get(`http://data.nba.net/prod/v1/current/standings_conference.json`);
+    return data.league.standard;
+  } catch (e) {
+    console.error(e);
+    const LeagueEmpty = [] as Array<StandardStats>;
+    return LeagueEmpty;
+  }
+};

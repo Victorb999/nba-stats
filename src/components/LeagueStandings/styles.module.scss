@@ -1,0 +1,32 @@
+.standingsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  .standingsConference{
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--gray-5);
+    .standingsTeam{
+      display: flex;
+      padding: 0.25rem 0.5rem;
+      border-bottom: 0.5px solid var(--gray-6);
+      span{
+        margin-left: 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+      span:last-child{
+        margin-left: auto;
+      }
+      &:hover{
+        cursor: default;
+        transition: 2s;
+        background-color: var(--gray-4);
+      }
+    }
+  }
+}
+.playoffs{
+  background-color: var(--gray-3);
+}
