@@ -19,7 +19,7 @@ import { Standard as PlayerStandard } from "../../services/typesPlayer";
 import { ParsedUrlQuery } from "querystring";
 import { TeamStats } from "../../services/typesStats";
 import { useCallback, useEffect, useState } from "react";
-import Stats from "../../components/Stats";
+import Stats from "../../components/TeamStats";
 
 type TeamNBA = {
   city: string;

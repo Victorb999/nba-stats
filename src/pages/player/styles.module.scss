@@ -24,7 +24,7 @@
       padding: 0rem;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
     }
   }
   .playerInfo {
@@ -35,7 +35,7 @@
     .playerInfoContainer {
       padding: 1rem;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       div:first-child {
         margin-right: 2rem;
       }
@@ -50,7 +50,14 @@
     margin-bottom: 1rem;
     .playerCareerContainer {
       padding: 1rem;
-    }  
+    }
+    .playerCareerContainerGrid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      grid-auto-rows: 1fr;
+      padding: 1rem;
+    }
   }
 }
 
@@ -68,14 +75,7 @@
     margin: 1rem;
     width: 80vw;
   }
-  .playerStatsContainer {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    h2{
-      margin: 0.25rem;
-    }
-  }
+  
 }
 
 .playerTitleBottom {
