@@ -26,9 +26,10 @@ export default function LeagueStandings() {
 
   return (
     <div className={styles.allStandings}>
+      <div className={styles.standingsTitle}>
       <h1>League Standings</h1>
       <h2>{standings.seasonYear}</h2>
-
+      </div>
       <div className={styles.standingsContainer}>
         <div className={styles.standingsConference}>
           <div className={styles.conferenceTitle}>

@@ -124,7 +124,7 @@ export const getPlayerProfile = async (id: string) => {
 
 export const getStandings = async () => {
   try {
-    const { data } = await axios.get(`http://data.nba.net/prod/v1/current/standings_conference.json`);
+    const { data } = await axios.get(`https://data.nba.net/prod/v1/current/standings_conference.json`);
     return data.league.standard;
   } catch (e) {
     console.error(e);
