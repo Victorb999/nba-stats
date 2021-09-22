@@ -114,13 +114,18 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 2rem 0.5rem;
 }
 .containerCenter{
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.linkFlex{
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
 }
 .red{
   color: var(--red);

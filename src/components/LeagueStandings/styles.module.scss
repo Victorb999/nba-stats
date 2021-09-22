@@ -1,32 +1,58 @@
-.standingsContainer{
+.allStandings{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.standingsContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  .standingsConference{
+  .standingsConference {
     margin: 1rem;
-    padding: 1rem;
     background-color: var(--gray-5);
-    .standingsTeam{
+    box-shadow: 0px 2px 4px var(--black);
+    .conferenceTitle {
+      display: flex;
+      border-radius: var(--border-radius-top);
+      width: 100%;
+      color: var(--white);
+      padding: 1rem;
+      font-family: var(--font-1);
+      text-align: center;
+      justify-content: center;
+      justify-self: last baseline;
+      font-size: 1.25rem;
+      background: var(--degrade-1);
+    }
+    .standingsTeam {
       display: flex;
       padding: 0.25rem 0.5rem;
       border-bottom: 0.5px solid var(--gray-6);
-      span{
-        margin-left: 0.5rem;
+      span {
+        margin: 0.5rem;
         display: flex;
         align-items: center;
       }
-      span:last-child{
+      span:last-child {
         margin-left: auto;
       }
-      &:hover{
+      &:hover {
         cursor: default;
         transition: 2s;
         background-color: var(--gray-4);
       }
+      .teamLink {
+        cursor: pointer;
+        margin: 0.5rem;
+        align-items: center;
+        &:hover{
+          color: var(--blue-1);
+        }
+      }
     }
   }
 }
-.playoffs{
+.playoffs {
   background-color: var(--gray-3);
 }
