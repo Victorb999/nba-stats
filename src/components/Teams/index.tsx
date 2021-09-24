@@ -1,18 +1,14 @@
 import styles from "./teams.module.scss";
 
-import { useEffect } from "react";
-import { useTeam } from "../../contexts/TeamContext";
-
 import Image from "next/image";
 import Link from "next/link";
+import {Team} from "../../services/typesTeams";
 
-function Teams() {
-  const { getTeams, teams } = useTeam();
+type TeamProps ={
+  teams: Team[];
+}
 
-  useEffect(() => {
-    getTeams();
-  }, [getTeams]);
-
+function Teams({teams}:TeamProps) {
   return (
     <div className={styles.containerTeams}>
       <h1>Teams</h1>

@@ -8,26 +8,14 @@ import {
 } from "react";
 import { getAllNBATeams } from "../services/api";
 
-type Team = {
-  city: string;
-  fullName: string;
-  isNBAFranchise: boolean;
-  confName: string;
-  tricode: string;
-  teamShortName: string;
-  divName: string;
-  isAllStar: boolean;
-  nickname: string;
-  urlName: string;
-  teamId: string;
-  altCityName: string;
-};
+import {Team} from "../services/typesTeams";
 
 type TeamContextData = {
   teams: Team[];
   getTeams: () => void;
   getTeam: (id: string) => Team;
   getTeamName: (id: string) => string;
+  filterTeam:(name: string) => Team[];
 };
 type TeamContextProviderProps = {
   children: ReactNode;
@@ -66,8 +54,19 @@ export function TeamContextProvider({ children }: TeamContextProviderProps) {
     return team[0].nickname.toLowerCase();
   }
 
+  function filterTeam(name: string) {
+    if (teams.length === 0) {
+      const team = [] as Team[];
+      return team;
+    }
+    const team = teams.filter((team) => {
+      return team.fullName.toLowerCase().indexOf(name.toLowerCase()) > -1
+    });
+    return team;
+  }
+
   return (
-    <TeamContext.Provider value={{ teams, getTeams, getTeam, getTeamName }}>
+    <TeamContext.Provider value={{ teams, getTeams, getTeam, getTeamName,filterTeam }}>
       {children}
     </TeamContext.Provider>
   );
