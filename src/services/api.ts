@@ -1,5 +1,4 @@
-import { RegularSeason } from './typesPlayer';
-import { StandardStats, TeamStats } from './typesStats';
+import { StandardStats, TeamStats } from "./typesStats";
 import axios from "axios";
 
 import { Standard, StandardWithLogo } from "../services/typesRoster";
@@ -46,11 +45,13 @@ export const getAllNBATeams = async () => {
   }
 };
 
-export const getTeamRegularSeasonStats = async (id:String) => {
+export const getTeamRegularSeasonStats = async (id: String) => {
   try {
-    const { data } = await axios.get("https://data.nba.net/10s/prod/v1/2020/team_stats_rankings.json");
+    const { data } = await axios.get(
+      "https://data.nba.net/10s/prod/v1/2020/team_stats_rankings.json"
+    );
 
-    let teams = data.league.standard
+    let teams = data.league.standard;
     teams = teams.regularSeason.teams.filter((team: TeamStats) => {
       return team.teamId === id;
     });
@@ -60,7 +61,7 @@ export const getTeamRegularSeasonStats = async (id:String) => {
     const TeamEmpty = {} as TeamStats;
     return TeamEmpty;
   }
-}
+};
 
 export const getRosterTeam = async (id: string) => {
   try {
@@ -121,14 +122,15 @@ export const getPlayerProfile = async (id: string) => {
   }
 };
 
-
 export const getStandings = async () => {
   try {
-    const { data } = await axios.get(`https://data.nba.net/prod/v1/current/standings_conference.json`);
+    const { data } = await axios.get(
+      `https://data.nba.net/prod/v1/current/standings_conference.json`
+    );
     return data.league.standard;
   } catch (e) {
     console.error(e);
-    const LeagueEmpty = [] as Array<StandardStats>;
+    const LeagueEmpty = {} as StandardStats;
     return LeagueEmpty;
   }
 };
