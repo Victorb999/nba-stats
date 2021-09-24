@@ -49,7 +49,7 @@ function TeamsPage({teams}:TeamsPageProps) {
       </div>
       {teamsNBA.length > 0 ?(
       <Teams teams={teamsNBA}/> ): (<div className={styles.centerError}>
-        <h2>Sorry, We didn't find any team with this name...</h2>
+        <h2>{"Sorry, We didn't find any team with this name..."}</h2>
       </div>)}
     </div>
   );
