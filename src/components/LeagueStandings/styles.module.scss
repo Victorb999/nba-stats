@@ -1,9 +1,9 @@
-.allStandings{
+.allStandings {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .standingsTitle{
+  .standingsTitle {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +55,7 @@
         cursor: pointer;
         margin: 0.5rem;
         align-items: center;
-        &:hover{
+        &:hover {
           color: var(--blue-1);
         }
       }
@@ -64,4 +64,15 @@
 }
 .playoffs {
   background-color: var(--gray-3);
+}
+@media (max-width: 600px) {
+  .standingsContainer {
+    .standingsConference {
+      .standingsTeam {
+        .teamLink {
+          display: none;
+        }
+      }
+    }
+  }
 }

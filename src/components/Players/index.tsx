@@ -17,14 +17,23 @@ function Players({ players }: PlayersProps) {
             <div key={player.personId} className={styles.player}>
               <Link href={`/player/${player.personId}`} passHref>
                 <div className="navbar-brand">
-                  <ImageWithFallback
-                    width={200}
-                    height={200}
-                    src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.personId}.png`}
-                    alt={player.personId}
-                    fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
-                  />
-                  <h2>{player.firstName + " " + player.lastName}</h2>
+                  <div className={styles.playerPhoto}>
+                    <div className={styles.playerPhotoContainer}>
+                      <ImageWithFallback
+                        width={280}
+                        height={280}
+                        src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.personId}.png`}
+                        alt={player.personId}
+                        fallbackSrc={`https://cdn.nba.com/headshots/nba/latest/1040x760/logoman.png`}
+                      />
+                    </div>
+                    <div className={styles.playerTitleBottom}>
+                      <h2>
+                        #
+                        {`${player.jersey}  ${player.firstName}  ${player.lastName}`}
+                      </h2>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
