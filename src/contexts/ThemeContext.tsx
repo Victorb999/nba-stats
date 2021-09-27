@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState, useContext } from "react";
+import { changeTheme } from "../utils/themes";
 
 type ThemeContextData = {
   darkTheme: boolean;
@@ -13,11 +14,12 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
   const [darkTheme, setDarkTheme] = useState(true);
 
   function toogleTheme() {
+    changeTheme(!darkTheme);
     setDarkTheme(!darkTheme);
   }
   return (
     <ThemeContext.Provider value={{ darkTheme, toogleTheme }}>
-      <div className={darkTheme ? "dark" : "light"}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }

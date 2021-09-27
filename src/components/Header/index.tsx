@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 
 import Link from "next/link";
+import ThemeSelector from "../ThemeSelector";
 
 export function Header() {
   return (
@@ -27,6 +28,7 @@ export function Header() {
           <h2>Players</h2>
         </div>
       </Link>
+      <ThemeSelector />
     </header>
   );
 }

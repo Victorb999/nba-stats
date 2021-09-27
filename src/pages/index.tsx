@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <h1>Welcome to NBA stats</h1>
         <h3>here you can search all about nba stuffs</h3>
       </div>
-      <div>
+      <div>        
         <LeagueStandings />
       </div>
     </>
