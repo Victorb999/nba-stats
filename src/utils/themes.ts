@@ -21,20 +21,20 @@ const darkTheme: Theme = {
   "--gray-5": "#1C2127",
   "--gray-6": "#030509",
   "--green": "#85ffc7",
-  "--shadow": "0px 2px 4px rgba(0, 0, 0, 0.25)",
+  "--shadow": "0px 2px 4px rgba(0, 0, 0, 0.25)"
 };
 
 const lightTheme: Theme = {
   "--white": "#fff",
   "--black": "#000",
   "--gray-6": "#fffffa",
-  "--gray-5": "#e5e5e5",
-  "--gray-4": "#999",
-  "--gray-3": "#666",
-  "--gray-2": "#333",
-  "--gray-1": "#121212",
+  "--gray-5": "#e5e6e4",
+  "--gray-4": "#cfd2cd",
+  "--gray-3": "#a6a2a2",
+  "--gray-2": "#847577",
+  "--gray-1": "#223843",
   "--green": "#2a9d8f",
-  "--shadow": "0px 2px 4px #e5e5e5",
+  "--shadow": "0px 2px 4px #e5e6e4"
 };
 
 export function changeTheme(dark: boolean) {
@@ -42,8 +42,7 @@ export function changeTheme(dark: boolean) {
     for (var [key, value] of Object.entries(darkTheme)) {
       document.documentElement.style.setProperty(key, value);
     }
-  }
-  else{
+  } else {
     for (var [key, value] of Object.entries(lightTheme)) {
       document.documentElement.style.setProperty(key, value);
     }

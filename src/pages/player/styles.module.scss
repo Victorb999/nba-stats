@@ -80,7 +80,6 @@
   display: flex;
   border-radius: var(--border-radius-bottom);
   width: 100%;
-  color: var(--white);
   padding: 1rem;
   font-family: var(--font-1);
   text-align: center;
@@ -88,18 +87,22 @@
   justify-self: last baseline;
   font-size: 1.25rem;
   cursor: pointer;
+  h1{
+    color:var(--white);
+  }
 }
 .playerTitle {
   display: flex;
   border-radius: var(--border-radius-top);
   width: 100%;
-  color: var(--white);
   padding: 1rem;
   font-family: var(--font-1);
   text-align: center;
   justify-content: center;
-  justify-self: last baseline;
   font-size: 1.25rem;
+  h1{
+    color:var(--white);
+  }
 }
 
 @media (max-width: 600px) {

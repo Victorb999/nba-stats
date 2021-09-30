@@ -3,8 +3,10 @@ import Image from "next/image";
 
 import Link from "next/link";
 import ThemeSelector from "../ThemeSelector";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export function Header() {
+  const { darkTheme } = useTheme();
   return (
     <header className={styles.headerContainer}>
       <Link href="/" passHref>
@@ -12,7 +14,7 @@ export function Header() {
           <Image
             width={139}
             height={24}
-            src="/logo.svg"
+            src={darkTheme ? "/logo.svg" : "/logo-black.svg"}
             alt="logo"
             objectFit="cover"
           />
