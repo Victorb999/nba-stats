@@ -6,16 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "axios": "0.21.4",
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-test-renderer": "^17.0.2",
     "sass": "^1.38.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.1",
+    "babel-jest": "^27.2.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.2.4",
     "@types/react": "17.0.19",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
