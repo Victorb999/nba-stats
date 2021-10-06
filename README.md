@@ -24,10 +24,16 @@ Prototype in [figma](https://www.figma.com/file/oS3p6eVYuFqE8O0xl8hoV3/NBA-STATS
   # Clone:
   $ https://github.com/Victorb999/nba-stats
   # enter directory:
-  $ cd pokedex
+  $ cd nba-stats
   
   # install depencences:
   $ yarn
+  
+  #execute
+  $ yarn dev
+  
+  #for tests
+  yarn test
 ```
 
 Made with ❤️ for Victor Araújo 👋🏻 [Get in touch!](https://github.com/Victorb999)
