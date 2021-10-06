@@ -5,6 +5,17 @@
 <p align="center">
   <img alt="gif app" src="https://im4.ezgif.com/tmp/ezgif-4-7ed031a8e32b.gif">
 </p>
+<p align="center">  
+  <img alt="visits" src="https://badges.pufler.dev/visits/Victorb999/nba-stats"/>
+  <img alt="visits" src="https://badges.pufler.dev/created/Victorb999/nba-stats"/>
+  <img alt="visits" src="https://img.shields.io/github/last-commit/Victorb999/nba-stats/main"/>
+</p> 
+<p align="center">  
+  <img alt="next" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>  
+  <img alt="typescript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img alt="yarn" src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white"/>
+  <img alt="vercel" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+</p>
 
 # 📰 About
 This project is a site where the user can find infos about NBA teams and players.
