@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img alt="gif app" src="https://im4.ezgif.com/tmp/ezgif-4-7ed031a8e32b.gif">
+  <img alt="gif app" src="https://nba-stats-pi.vercel.app/_next/image?url=%2Fgif.gif&w=256&q=75">
 </p>
 <p align="center">  
   <img alt="visits" src="https://badges.pufler.dev/visits/Victorb999/nba-stats"/>
