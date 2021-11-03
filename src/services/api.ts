@@ -47,8 +47,8 @@ export const getAllNBATeams = async () => {
 
 export const getTeamRegularSeasonStats = async (id: String) => {
   try {
-    const { data } = await axios.get(
-      "https://data.nba.net/10s/prod/v1/2020/team_stats_rankings.json"
+    const { data } = await api.get(
+      "/team_stats_rankings.json"
     );
 
     let teams = data.league.standard;
