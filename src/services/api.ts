@@ -7,10 +7,23 @@ import {
   Standard as PlayerStandard
 } from "../services/typesPlayer";
 
-const date = new Date();
-const year = date.getFullYear();
+const returnYear = () => {
+
+  const date = new Date();
+  let year;
+  const month = date.getMonth(); 
+  if (month > 10){ // temporada começa em outubro
+    year = date.getFullYear();
+  }
+  else{
+    year = date.getFullYear() - 1;
+  }
+  return year;
+}
+
+
 export const api = axios.create({
-  baseURL: `https://data.nba.net/10s/prod/v1/${year}/`
+  baseURL: `https://data.nba.net/10s/prod/v1/${returnYear()}/`
 });
 
 type Team = {
